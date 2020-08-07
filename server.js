@@ -12,17 +12,19 @@ const rateLimit = require('express-rate-limit')
 const hpp = require('hpp')
 const cors = require('cors')
 
+const connectDB = require('./config/db')
+
 
 // Load env vars
-dotenv.config()
+dotenv.config({ path: './config/.env' })
 
 console.log(process.env.NODE_ENV)
 
 // Connect to database
-// --
+connectDB()
 
 // Route files
-// --
+const users = require('./routes/users')
 
 const app = express()
 
@@ -66,7 +68,7 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Mount routers
-// --
+app.use('/api/v1/users', users)
 
 app.get('/', (req, res) => {
     res.json({ message: "Hello World" })

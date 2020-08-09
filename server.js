@@ -25,6 +25,7 @@ connectDB()
 
 // Route files
 const users = require('./routes/users')
+const auth = require('./routes/auth')
 
 const app = express()
 
@@ -69,6 +70,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Mount routers
 app.use('/api/v1/users', users)
+app.use('/api/v1/auth', auth)
 
 app.get('/', (req, res) => {
     res.json({ message: "Hello World" })

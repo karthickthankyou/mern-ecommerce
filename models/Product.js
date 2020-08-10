@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
-const { ObjectId } = mongoose.Schema
 
 const ProductSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
+        text: true,
         trim: true,
         required: [true, 'Please add a product title'],
         maxlength: 32
     },
     description: {
         type: String,
-        required: [true, 'Please add a product title'],
+        required: [true, 'Please add a product description'],
         maxlength: 2000
     },
     price: {
@@ -20,19 +20,21 @@ const ProductSchema = new mongoose.Schema({
         maxlength: 32
     },
     category: {
-        type: ObjectId,
-        ref: "Category",
+        type: String,
+        enum: ['Books', 'Electronics', "Grocery"],
         required: [true, 'Please add a product category'],
     },
     quantity: {
         type: Number
     },
     photo: {
-        data: Buffer,
-        contentType: String
-    }
+        type: String,
+        default: 'no-photo.jpg'
+    },
 },
     { timestamps: true }
 )
+
+ProductSchema.index({ '$**': 'text' })
 
 module.exports = mongoose.model("Product", ProductSchema)

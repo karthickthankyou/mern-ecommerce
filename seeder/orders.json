@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "5f30ed2736b95d10b81c0a0b",
+        "status": "Cancelled",
+        "products": [
+            {
+                "_id": "5f30ed2736b95d10b81c0a0c",
+                "product": "5f30cee524c15446a9ff9434",
+                "price": 12.5,
+                "quantity": 4
+            },
+            {
+                "_id": "5f30ed2736b95d10b81c0a0d",
+                "product": "5f30d2c89d918650e1f3ec1f",
+                "price": 12.5,
+                "quantity": 4
+            },
+            {
+                "_id": "5f30ed2736b95d10b81c0a0e",
+                "product": "5f30de64101deb6f751ad724",
+                "price": 12.5,
+                "quantity": 4
+            }
+        ],
+        "transaction_id": 123,
+        "amount": 154.5,
+        "address": "54, OMR house, OMR road, OMR city",
+        "user": "5f2f9e36214114d506bb0b5c",
+        "createdAt": "2020-08-10T06:45:59.598+00:00",
+        "updatedAt": "2020-08-10T07:54:24.838+00:00"
+    }
+]

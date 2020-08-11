@@ -19,6 +19,12 @@ const ProductSchema = new mongoose.Schema({
         required: [true, 'Please add a product price'],
         maxlength: 32
     },
+    averageRating: {
+        type: Number,
+        default: null,
+        min: [1, 'Rating must be at least 1'],
+        max: [10, 'Rating must can not be more than 10']
+    },
     category: {
         type: String,
         enum: ['Books', 'Electronics', "Grocery"],
